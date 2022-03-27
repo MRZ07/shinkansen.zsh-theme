@@ -27,7 +27,7 @@ if [ ! -n "${SHINKANSEN_PROMPT_ORDER+1}" ]; then
     perl
     ruby
     virtualenv
-    nvm
+    node
     aws
     go
     rust
@@ -96,15 +96,15 @@ if [ ! -n "${SHINKANSEN_VIRTUALENV_PREFIX+1}" ]; then
   SHINKANSEN_VIRTUALENV_PREFIX=🐍
 fi
 
-# NVM
-if [ ! -n "${SHINKANSEN_NVM_BG+1}" ]; then
-  SHINKANSEN_NVM_BG=green
+# NODE
+if [ ! -n "${SHINKANSEN_NODE_BG+1}" ]; then
+  SHINKANSEN_NODE_BG=green
 fi
-if [ ! -n "${SHINKANSEN_NVM_FG+1}" ]; then
-  SHINKANSEN_NVM_FG=white
+if [ ! -n "${SHINKANSEN_NODE_FG+1}" ]; then
+  SHINKANSEN_NODE_FG=white
 fi
-if [ ! -n "${SHINKANSEN_NVM_PREFIX+1}" ]; then
-  SHINKANSEN_NVM_PREFIX="⬡ "
+if [ ! -n "${SHINKANSEN_NODE_PREFIX+1}" ]; then
+  SHINKANSEN_NODE_PREFIX="⬡ "
 fi
 
 # AWS
@@ -584,19 +584,18 @@ prompt_virtualenv() {
   fi
 }
 
-# NVM: Node version manager
-prompt_nvm() {
-  local nvm_prompt
-  if type nvm >/dev/null 2>&1; then
-    nvm_prompt=$(nvm current 2>/dev/null)
-    [[ "${nvm_prompt}x" == "x" || "${nvm_prompt}" == "system" ]] && return
-  elif type node >/dev/null 2>&1; then
-    nvm_prompt="$(node --version)"
-  else
-    return
+# NODE: Node version manager
+prompt_node() {
+  local node_prompt
+  if [[ (-f package.json) ]]; then
+    if type node >/dev/null 2>&1; then
+      node_prompt="$(node --version)"
+    else
+      return
+    fi
+  node_prompt=${node_prompt}
+  prompt_segment $SHINKANSEN_NODE_BG $SHINKANSEN_NODE_FG $SHINKANSEN_NODE_PREFIX$node_prompt
   fi
-  nvm_prompt=${nvm_prompt}
-  prompt_segment $SHINKANSEN_NVM_BG $SHINKANSEN_NVM_FG $SHINKANSEN_NVM_PREFIX$nvm_prompt
 }
 
 #AWS Profile
