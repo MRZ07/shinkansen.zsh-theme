@@ -28,6 +28,7 @@ if [ ! -n "${SHINKANSEN_PROMPT_ORDER+1}" ]; then
     ruby
     virtualenv
     node
+    java
     aws
     go
     rust
@@ -105,6 +106,17 @@ if [ ! -n "${SHINKANSEN_NODE_FG+1}" ]; then
 fi
 if [ ! -n "${SHINKANSEN_NODE_PREFIX+1}" ]; then
   SHINKANSEN_NODE_PREFIX="⬡ "
+fi
+
+# JAVA
+if [ ! -n "${SHINKANSEN_JAVA_BG+1}" ]; then
+  SHINKANSEN_JAVA_BG=black
+fi
+if [ ! -n "${SHINKANSEN_JAVA_FG+1}" ]; then
+  SHINKANSEN_JAVA_FG=red
+fi
+if [ ! -n "${SHINKANSEN_JAVA_PREFIX+1}" ]; then
+  SHINKANSEN_JAVA_PREFIX="☕️ "
 fi
 
 # AWS
@@ -584,7 +596,7 @@ prompt_virtualenv() {
   fi
 }
 
-# NODE: Node version manager
+# NODE: NodeJs
 prompt_node() {
   local node_prompt
   if [[ (-f package.json) ]]; then
@@ -598,7 +610,21 @@ prompt_node() {
   fi
 }
 
-#AWS Profile
+# JAVA
+prompt_java() {
+  local java_prompt
+  if [[ (-f pom.xml || -f build.gradle) ]]; then
+    if type java >/dev/null 2>&1; then
+      java_prompt="$(java -version 2>&1 | head -n 1 | cut -d'"' -f2)"
+    else
+      return
+    fi
+  java_prompt=${java_prompt}
+  prompt_segment $SHINKANSEN_JAVA_BG $SHINKANSEN_JAVA_FG $SHINKANSEN_JAVA_PREFIX$java_prompt
+  fi
+}
+
+# AWS Profile
 prompt_aws() {
   local spaces="  "
 
