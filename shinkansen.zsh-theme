@@ -149,7 +149,7 @@ if [ ! -n "${SHINKANSEN_GO_FG+1}" ]; then
   SHINKANSEN_GO_FG=white
 fi
 if [ ! -n "${SHINKANSEN_GO_PREFIX+1}" ]; then
-  SHINKANSEN_GO_PREFIX="go"
+  SHINKANSEN_GO_PREFIX="🦦"
 fi
 
 # Rust
