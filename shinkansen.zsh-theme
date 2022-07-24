@@ -10,7 +10,7 @@
 
 # ------------------------------------------------------------------------------
 # CONFIGURATION
-# The default configuration, that can be overwrite in your .zshrc file
+# The default configuration, that can be overwrite in your .zshrc file before you loading the theme.
 # ------------------------------------------------------------------------------
 
 VIRTUAL_ENV_DISABLE_PROMPT=true
