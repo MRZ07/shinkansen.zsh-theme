@@ -35,7 +35,7 @@ In order to use the theme, you will first need:
 
 - Powerline compatible fonts
 - On Ubuntu like systems you'll need the `ttf-ancient-fonts` package to correctly display some unicode symbols that are not covered by the Powerline fonts above.
-- A ZSH framework like, [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh), [antigen](https://github.com/zsh-users/antigen) or [zgen](https://github.com/tarjoilija/zgen)
+- A ZSH framework like [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh), [antigen](https://github.com/zsh-users/antigen) or [zgenom](https://github.com/jandamm/zgenom).
 - Make sure terminal is using 256-colors mode with `export TERM="xterm-256color"`
 - For [iTerm 2](http://iterm2.com/) users, make sure you go into your settings and set both the regular font and the non-ascii font to powerline compatible [fonts](https://github.com/powerline/fonts) or the prompt separators and special characters will not display correctly.
 
@@ -62,12 +62,12 @@ Add the following snippet to your **.zshrc** somewhere after the line
 antigen theme https://github.com/MRZ07/shinkansen.zsh-theme shinkansen
 ```
 
-### For Zgen users
+### For Zgenom users
 
-If you're using [zgen](https://github.com/tarjoilija/zgen), add the following line to your **~/.zshrc** where you're adding your other zsh plugins **after** the line `zgen oh-my-zsh`.
+If you're using [zgenom](https://github.com/jandamm/zgenom), add the following line to your **~/.zshrc** where you're adding your other zsh plugins **after** the line `zgenom oh-my-zsh`.
 
 ```bash
-zgen load mrz07/shinkansen.zsh-theme shinkansen
+zgenom load mrz07/shinkansen.zsh-theme shinkansen
 ```
 
 ### For Zplug users
