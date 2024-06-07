@@ -199,7 +199,7 @@ NOTE: You do not need to specify _end_ segment - it will be added automatically.
 | --------------------------- | ---------------------- | --------------------------------------------------------------------------------------------------- |
 | `SHINKANSEN_KCTX_BG`        | `yellow`               | Background color                                                                                    |
 | `SHINKANSEN_KCTX_FG`        | `white`                | Foreground color                                                                                    |
-| `SHINKANSEN_KCTX_PREFIX`    | `⎈`                    | [Kubernetes](https://unicode-table.com/de/2388/) prefix of the segment                              |
+| `SHINKANSEN_KCTX_PREFIX`    | `⎈`                    | [Kubernetes](https://symbl.cc/de/2388/) prefix of the segment                              |
 | `SHINKANSEN_KCTX_KUBECTL`   | `true`                 | If `false` disable `kubectl` usage                                                                  |
 | `SHINKANSEN_KCTX_NAMESPACE` | `true`                 | If `false` will not show the default namespace. Namespace is only visible if `kubectl` is installed |
 | `SHINKANSEN_KCTX_KCONFIG`   | `${HOME}/.kube/config` | Location of kube config file (e.g. /Users/Hugo/.kube/config)                                        |
