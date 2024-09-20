@@ -286,5 +286,5 @@ Nothing to configure.
 
 ## Contributors & Credits
 
-That project was originally a fork from
+This project was originally a fork from
 [Bullettrain](https://github.com/MRZ07/bullet-train.zsh)
